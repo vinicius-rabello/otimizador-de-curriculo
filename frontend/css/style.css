@@ -1,0 +1,114 @@
+/* Define CSS variables for colors */
+:root {
+  --color-primary: #adc178;
+  --color-primary-light: #dde5b6;
+  --color-primary-hover: #588157;
+  --color-background: #f0ead2;
+  --color-text: #333;
+  --color-text-secondary: #666;
+  --color-border: #344e41;
+  --color-input-background: #fff;
+}
+
+/* Main styles */
+* {
+  box-sizing: border-box;
+  font-family: "Courier New", Courier, monospace;
+}
+
+body {
+  background-color: var(--color-primary);
+  margin: 0;
+}
+
+#container {
+  display: flex;
+  width: 100vw;
+  height: 100dvh;
+}
+
+#left-panel {
+  width: 40%;
+  background-color: var(--color-background);
+  border-radius: 8px;
+  display: flex;
+  padding: 5%;
+}
+
+#right-panel {
+  width: 60%;
+  background-color: var(--color-primary);
+}
+
+/* Left panel styles */
+#left-panel-content {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.input-form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-grow: 1;
+  padding: 5%;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  flex-grow: 1;
+  gap: 24px;
+}
+
+.form-item {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+label {
+  width: 100%;
+  padding: 0.5rem;
+}
+
+textarea {
+  width: 100%;
+  resize: none;
+  border-color: var(--color-border);
+  border-radius: 4px;
+  padding: 0.5rem;
+}
+
+#submit {
+  margin-top: 48px;
+  background-color: var(--color-primary);
+  padding: 0.5rem 1.5rem;
+  border-radius: 4px;
+}
+
+#submit:hover {
+  background-color: var(--color-primary-hover);
+  color: #fff;
+}
+
+/* Mobile styles */
+@media screen and (max-width: 1024px) {
+  #container {
+    flex-direction: column;
+  }
+
+  #left-panel {
+    width: 100%;
+    min-height: 100dvh;
+  }
+
+  #right-panel {
+    width: 100%;
+    min-height: 100dvh;
+  }
+}
