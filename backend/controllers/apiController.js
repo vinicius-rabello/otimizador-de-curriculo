@@ -1,11 +1,10 @@
 const { parseData, sendToAi } = require("../services/apiServices");
 
-function handleRequest(body) {
-    const prompt = parseData(body.data);
-    console.log("Prompt sent to AI:", prompt);
-    const response = sendToAi(prompt);
-    console.log("Response from AI:", response);
-    return { "data": response };
+async function handleRequest(body) {
+    const prompt = parseData(body.resume, body.jobDescription);
+    const response = await sendToAi(prompt);
+    console.log("Response from AI:", response.choices[0].message.content);
+    return { "data": response.text };
 };
 
 module.exports = { handleRequest };

@@ -10,9 +10,8 @@ app.get("/", (req, res) => {
   res.sendFile("index.html", { root: "../frontend" });
 });
 
-app.post("/api/submit", (req, res) => {
-    const response = handleRequest(req.body);
-    console.log("Response sent to client:", response);
+app.post("/api/submit", async (req, res) => {
+    const response = await handleRequest(req.body);
     res.send(response);
 });
 
