@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", function () {
       const jobDescriptionValue = document.getElementById("job-description").value;
       const data = resumeValue + " " + jobDescriptionValue;
 
-      const response = await fetch("http://localhost:3000/api/submit", {
+      const response = await fetch("/api/submit", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
