@@ -4,14 +4,16 @@ const { handleRequest } = require("./controllers/apiController");
 const app = express();
 
 app.use(express.json());
-app.use(express.static("../frontend"));
+app.use(express.static("./frontend"));
 
 app.get("/", (req, res) => {
   res.sendFile("index.html", { root: "../frontend" });
 });
 
 app.post("/api/submit", (req, res) => {
-    handleRequest(req.body);
+    const response = handleRequest(req.body);
+    console.log("Response sent to client:", response);
+    res.send(response);
 });
 
 app.listen(3000, () => {

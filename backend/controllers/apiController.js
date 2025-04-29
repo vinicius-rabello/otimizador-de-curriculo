@@ -5,7 +5,7 @@ function handleRequest(body) {
     console.log("Prompt sent to AI:", prompt);
     const response = sendToAi(prompt);
     console.log("Response from AI:", response);
-    return response;
+    return { "data": response };
 };
 
 module.exports = { handleRequest };

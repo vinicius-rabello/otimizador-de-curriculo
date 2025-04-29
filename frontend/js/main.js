@@ -7,12 +7,14 @@ document.addEventListener("DOMContentLoaded", function () {
       const jobDescriptionValue = document.getElementById("job-description").value;
       const data = resumeValue + " " + jobDescriptionValue;
 
-      await fetch("/api/submit", {
+      const response = await fetch("http://localhost:3000/api/submit", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({ data: data }),
       });
+      const json = await response.json();
+      document.getElementById("output-text").textContent = json.data;
     });
 });
